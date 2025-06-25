@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { Building, Users, Goal, ArrowRight } from "lucide-react";
@@ -80,9 +80,9 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[60vh] flex items-center justify-center text-center text-white">
-          <div className="absolute inset-0 bg-background/50 z-10"></div>
-          <Image src="https://placehold.co/1920x1080.png" alt="Hero background" layout="fill" objectFit="cover" className="z-0" data-ai-hint="architecture abstract" />
+        <section className="relative h-[70vh] flex items-center justify-center text-center text-white">
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-transparent z-10" />
+          <Image src="https://placehold.co/1920x1080.png" alt="Hero background" fill className="object-cover z-0" data-ai-hint="architecture abstract" />
           <div className="relative z-20 container px-4">
             <h1 className="text-5xl md:text-7xl font-bold font-headline mb-4 drop-shadow-lg">Shaping Tomorrow's Skylines</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/90 drop-shadow-md">
@@ -125,22 +125,22 @@ export default function Home() {
                   Founded on the principles of creativity, integrity, and sustainability, Mirran Architecture has been at the forefront of architectural innovation for over two decades. We believe that great design can transform lives and build better futures.
                 </p>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-background rounded-md text-primary"><Building /></div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-accent/50 border border-transparent hover:border-primary/20 transition-colors">
+                    <div className="p-3 bg-primary/10 rounded-md text-primary"><Building /></div>
                     <div>
                       <h3 className="font-semibold font-headline">Our Philosophy</h3>
                       <p className="text-muted-foreground text-sm">To create spaces that are not only aesthetically pleasing but also functional, durable, and environmentally responsible.</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-background rounded-md text-primary"><Users /></div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-accent/50 border border-transparent hover:border-primary/20 transition-colors">
+                    <div className="p-3 bg-primary/10 rounded-md text-primary"><Users /></div>
                     <div>
                       <h3 className="font-semibold font-headline">Our Team</h3>
                       <p className="text-muted-foreground text-sm">A collective of passionate architects, designers, and engineers dedicated to pushing the boundaries of design.</p>
                     </div>
                   </div>
-                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-background rounded-md text-primary"><Goal /></div>
+                   <div className="flex items-start gap-4 p-4 rounded-lg bg-accent/50 border border-transparent hover:border-primary/20 transition-colors">
+                    <div className="p-3 bg-primary/10 rounded-md text-primary"><Goal /></div>
                     <div>
                       <h3 className="font-semibold font-headline">Our Mission</h3>
                       <p className="text-muted-foreground text-sm">To design and deliver exceptional architectural solutions that exceed client expectations and contribute positively to the built environment.</p>
@@ -150,8 +150,13 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {teamMembers.map((member, index) => (
-                   <div key={member.name} className={`rounded-lg overflow-hidden ${index === 0 ? 'col-span-2' : ''}`}>
-                    <Image src={member.image} alt={member.name} width={index === 0 ? 600 : 300} height={300} objectFit="cover" data-ai-hint={member.hint} className="w-full h-full" />
+                   <div key={member.name} className={`group relative rounded-lg overflow-hidden shadow-lg ${index === 0 ? 'col-span-2' : ''}`}>
+                    <Image src={member.image} alt={member.name} width={index === 0 ? 600 : 300} height={300} className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" data-ai-hint={member.hint} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-4">
+                        <h3 className="text-lg font-bold text-white font-headline">{member.name}</h3>
+                        <p className="text-sm text-white/80">{member.role}</p>
+                    </div>
                    </div>
                 ))}
               </div>
