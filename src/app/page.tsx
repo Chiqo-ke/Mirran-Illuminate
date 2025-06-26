@@ -147,24 +147,45 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Project Location Map */}
-        <section id="map" className="py-20">
+        {/* 3D Walkthroughs Section */}
+        <section id="walkthroughs" className="py-20">
           <div className="container">
-            <h2 className="text-4xl font-bold text-center font-headline mb-4">Our Project Locations</h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              We have had the privilege of shaping skylines and communities across the region.
+            <h2 className="text-4xl font-bold text-center font-headline mb-4">Experience Our Designs in 3D</h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
+              Our 3D walkthroughs bring your vision to life before breaking ground. By combining our professional expertise with your desires, we create immersive virtual experiences that allow you to explore every detail of your future space.
             </p>
-            <div className="rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
-              <Image 
-                src="https://placehold.co/1200x600.png" 
-                alt="Map of project locations" 
-                width={1200}
-                height={600}
-                className="w-full"
-                data-ai-hint="world map"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/z3QZ6g-q4wA"
+                  title="Luxury Modern House Architectural Walkthrough"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/YgQ_eAutX-s"
+                  title="Modern Villa Architectural Walkthrough"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="aspect-video rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/Gqpud9e9M3I"
+                  title="Contemporary Home 3D Animation"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
-             <p className="text-center text-xs text-muted-foreground mt-4">*Interactive map coming soon.</p>
           </div>
         </section>
         

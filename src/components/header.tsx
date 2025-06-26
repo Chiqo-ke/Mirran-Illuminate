@@ -61,8 +61,8 @@ export function Header() {
           <Button variant="link" className="text-lg text-foreground" onClick={() => scrollTo("about")}>
             About
           </Button>
-          <Button variant="link" className="text-lg text-foreground" onClick={() => scrollTo("map")}>
-            Locations
+          <Button variant="link" className="text-lg text-foreground" onClick={() => scrollTo("walkthroughs")}>
+            Walkthroughs
           </Button>
           <Button onClick={() => scrollTo("contact")}>
             Contact Us
