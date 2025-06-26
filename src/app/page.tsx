@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -11,24 +12,24 @@ import { Building, Users, Goal, ArrowRight, Mail } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Modern Glass Villa",
-    description: "A stunning synthesis of glass and steel, this villa offers panoramic views of the surrounding landscape.",
+    title: "Serene Lakeside Villa",
+    description: "A stunning synthesis of glass and wood, this villa offers panoramic views of a tranquil lake.",
     image: "https://placehold.co/600x400.png",
-    hint: "modern architecture",
+    hint: "lake house",
   },
   {
     id: 2,
-    title: "Urban Oasis Tower",
-    description: "A high-rise residential building integrating green spaces and sustainable technologies in a dense urban core.",
+    title: "Chic Urban Loft",
+    description: "A stylish loft conversion in the city center, featuring exposed brick and industrial-chic design.",
     image: "https://placehold.co/600x400.png",
-    hint: "skyscraper building",
+    hint: "urban loft",
   },
   {
     id: 3,
-    title: "The Heritage Museum",
-    description: "A contemporary extension to a historical building, blending old and new with sensitivity and respect.",
+    title: "Cozy Country Cottage",
+    description: "A charming countryside cottage, thoughtfully restored to blend rustic character with modern comforts.",
     image: "https://placehold.co/600x400.png",
-    hint: "museum interior",
+    hint: "country cottage",
   },
   {
     id: 4,
@@ -39,17 +40,17 @@ const projects = [
   },
     {
     id: 5,
-    title: "Corporate Headquarters",
-    description: "A dynamic and collaborative workspace designed to foster innovation and reflect the company's brand identity.",
+    title: "Luxury B&B Suite",
+    description: "An elegant and inviting bed & breakfast suite, designed for ultimate guest comfort and relaxation.",
     image: "https://placehold.co/600x400.png",
-    hint: "office building",
+    hint: "luxury suite",
   },
   {
     id: 6,
-    title: "Community Arts Center",
-    description: "A vibrant public space designed to be flexible and welcoming for a variety of cultural events and exhibitions.",
+    title: "Modern Studio Apartment",
+    description: "A compact and functional studio apartment, maximizing space with smart design and multi-purpose furniture.",
     image: "https://placehold.co/600x400.png",
-    hint: "community center",
+    hint: "studio apartment",
   },
 ];
 
@@ -63,9 +64,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-transparent z-10" />
           <Image src="https://placehold.co/1920x1080.png" alt="Hero background" fill className="object-cover z-0" data-ai-hint="architecture abstract" />
           <div className="relative z-20 container px-4">
-            <h1 className="text-5xl md:text-7xl font-bold font-headline mb-4 drop-shadow-lg">Shaping Tomorrow's Skylines</h1>
+            <h1 className="text-5xl md:text-7xl font-bold font-headline mb-4 drop-shadow-lg">Crafting Beautiful Spaces for Living</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/90 drop-shadow-md">
-              Mirran Architecture blends innovative design with sustainable practices to create spaces that inspire.
+              Mirran Architecture blends innovative design with sustainable practices to create homes and rentals that inspire.
             </p>
             <Button size="lg" className="mt-8">
               Explore Our Work <ArrowRight className="ml-2 h-5 w-5" />
@@ -78,7 +79,7 @@ export default function Home() {
           <div className="container">
             <h2 className="text-4xl font-bold text-center font-headline mb-4">Our Portfolio</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Discover a selection of our finest work, showcasing our commitment to design excellence and innovation.
+              Discover a selection of our finest work, showcasing our commitment to design excellence and innovation in residential architecture.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
