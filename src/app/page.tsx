@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
-import { Building, Users, Goal, ArrowRight } from "lucide-react";
+import { SubscriptionForm } from "@/components/subscription-form";
+import { Building, Users, Goal, ArrowRight, Mail } from "lucide-react";
 
 const projects = [
   {
@@ -51,28 +52,6 @@ const projects = [
     hint: "community center",
   },
 ];
-
-const teamMembers = [
-  {
-    name: "Alex Mirran",
-    role: "Lead Architect",
-    image: "https://placehold.co/300x300.png",
-    hint: "architect portrait",
-  },
-  {
-    name: "Samantha Chen",
-    role: "Project Manager",
-    image: "https://placehold.co/300x300.png",
-    hint: "woman portrait",
-  },
-  {
-    name: "David Lee",
-    role: "Structural Engineer",
-    image: "https://placehold.co/300x300.png",
-    hint: "man portrait",
-  },
-];
-
 
 export default function Home() {
   return (
@@ -148,17 +127,21 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {teamMembers.map((member, index) => (
-                   <div key={member.name} className={`group relative rounded-lg overflow-hidden shadow-lg ${index === 0 ? 'col-span-2' : ''}`}>
-                    <Image src={member.image} alt={member.name} width={index === 0 ? 600 : 300} height={300} className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105" data-ai-hint={member.hint} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4">
-                        <h3 className="text-lg font-bold text-white font-headline">{member.name}</h3>
-                        <p className="text-sm text-white/80">{member.role}</p>
-                    </div>
-                   </div>
-                ))}
+              <div className="flex items-center justify-center">
+                <Card className="w-full max-w-md p-8 lg:p-10 shadow-lg bg-background">
+                  <div className="text-center">
+                     <div className="flex justify-center mb-4">
+                        <div className="p-4 bg-primary/10 rounded-full text-primary">
+                            <Mail className="w-8 h-8"/>
+                        </div>
+                     </div>
+                    <h3 className="text-2xl font-bold font-headline mb-3">Stay in the Loop!</h3>
+                    <p className="text-muted-foreground mb-8">
+                     Joining our mailing list is your ticket to staying in the loop and ensuring you never miss out on our newest products, exciting promotions, and all the latest news from our brand.
+                    </p>
+                    <SubscriptionForm />
+                  </div>
+                </Card>
               </div>
             </div>
           </div>
