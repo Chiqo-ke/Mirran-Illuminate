@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { SubscriptionForm } from "@/components/subscription-form";
-import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin, FileText } from "lucide-react";
+import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin } from "lucide-react";
 
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -265,12 +265,16 @@ export default function Home() {
                   </div>
                 </a>
 
-                <Button variant="outline" asChild className="w-full max-w-xs">
-                  <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-                    <FileText className="mr-2 h-5 w-5" />
-                    Download My CV
-                  </a>
-                </Button>
+                <div className="w-full max-w-xs text-center">
+                  <div className="border rounded-lg overflow-hidden h-96 w-full bg-muted/20 shadow-inner">
+                    <iframe src="/cv.pdf" className="w-full h-full" title="CV Preview"></iframe>
+                  </div>
+                  <Button variant="link" asChild className="mt-4">
+                    <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                      See complete CV
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
