@@ -236,7 +236,7 @@ export default function Home() {
               <Card className="p-8 bg-background">
                 <ContactForm />
               </Card>
-              <div className="flex flex-col items-center justify-center space-y-8 pt-8 md:pt-0">
+              <div className="flex flex-col items-center justify-start space-y-8 pt-8 md:pt-0">
                 <div className="text-center">
                   <h3 className="font-bold text-lg text-foreground mb-4">Connect with us</h3>
                   <div className="flex items-center justify-center gap-6">
@@ -266,7 +266,7 @@ export default function Home() {
                 </a>
 
                 <div className="w-full max-w-xs text-center">
-                  <div className="border rounded-lg overflow-hidden h-96 w-full bg-muted/20 shadow-inner">
+                  <div className="border rounded-lg overflow-hidden h-[28rem] w-full bg-muted/20 shadow-inner">
                     <iframe src="/cv.pdf" className="w-full h-full" title="CV Preview"></iframe>
                   </div>
                   <Button variant="link" asChild className="mt-4">
