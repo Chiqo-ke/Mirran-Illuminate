@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { SubscriptionForm } from "@/components/subscription-form";
-import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin } from "lucide-react";
+import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin, FileText } from "lucide-react";
 
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -236,7 +236,22 @@ export default function Home() {
               <Card className="p-8 bg-background">
                 <ContactForm />
               </Card>
-              <div className="flex flex-col items-center md:items-start space-y-8">
+              <div className="flex flex-col items-center justify-center space-y-8 pt-8 md:pt-0">
+                <div className="text-center">
+                  <h3 className="font-bold text-lg text-foreground mb-4">Connect with us</h3>
+                  <div className="flex items-center justify-center gap-6">
+                      <a href="#" aria-label="X" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
+                          <XIcon className="h-8 w-8" />
+                      </a>
+                      <a href="#" aria-label="YouTube" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
+                          <Youtube className="h-8 w-8" />
+                      </a>
+                      <a href="#" aria-label="LinkedIn" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
+                          <Linkedin className="h-8 w-8" />
+                      </a>
+                  </div>
+                </div>
+                
                 <a 
                   href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20Mirran%20Architecture%20I%20would%20like%20to%20"
                   target="_blank"
@@ -249,17 +264,13 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground">Start a conversation instantly</p>
                   </div>
                 </a>
-                <div className="flex items-center justify-center gap-6">
-                    <a href="#" aria-label="X" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
-                        <XIcon className="h-8 w-8" />
-                    </a>
-                    <a href="#" aria-label="YouTube" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
-                        <Youtube className="h-8 w-8" />
-                    </a>
-                    <a href="#" aria-label="LinkedIn" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
-                        <Linkedin className="h-8 w-8" />
-                    </a>
-                </div>
+
+                <Button variant="outline" asChild className="w-full max-w-xs">
+                  <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                    <FileText className="mr-2 h-5 w-5" />
+                    Download My CV
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
