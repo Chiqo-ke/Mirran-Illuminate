@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <Logo />
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Mirran Architecture
+            &copy; {new Date().getFullYear()} Mirran Illuminate Architects
           </p>
         </div>
         <div className="flex items-center gap-2">

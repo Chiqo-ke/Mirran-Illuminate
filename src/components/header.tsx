@@ -1,6 +1,5 @@
 "use client";
 
-import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import React, { useState, useEffect, useRef } from "react";
@@ -47,11 +46,8 @@ export function Header() {
     )}>
       <div className="container flex h-20 items-center">
         <div className="mr-4 flex items-center">
-          <div className="text-primary">
-            <Logo />
-          </div>
-          <span className="ml-3 font-headline text-2xl font-bold text-foreground">
-            Mirran Architecture
+          <span className="font-headline text-2xl font-bold text-foreground">
+            Mirran Illuminate Architects
           </span>
         </div>
         <nav className="hidden md:flex flex-1 items-center justify-end space-x-2">

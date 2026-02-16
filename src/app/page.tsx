@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { SubscriptionForm } from "@/components/subscription-form";
-import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin } from "lucide-react";
+import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin, Palette, DollarSign, Eye, Hammer } from "lucide-react";
 
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -87,23 +87,57 @@ const projects = [
   },
 ];
 
+const services = [
+  { name: "Design", icon: Palette },
+  { name: "Costing", icon: DollarSign },
+  { name: "Supervision", icon: Eye },
+  { name: "Renovation", icon: Hammer },
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[70vh] flex items-center justify-center text-center text-white">
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-black/50 to-transparent z-10" />
-          <Image src="https://placehold.co/1920x1080.png" alt="Hero background" fill className="object-cover z-0" data-ai-hint="architecture abstract" />
-          <div className="relative z-20 container px-4">
-            <h1 className="text-5xl md:text-7xl font-bold font-headline mb-4 drop-shadow-lg">Crafting Beautiful Spaces for Living</h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/90 drop-shadow-md">
-              Mirran Architecture blends innovative design with sustainable practices to create homes and rentals that inspire.
-            </p>
-            <Button size="lg" className="mt-8">
-              Explore Our Work <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+        <section className="relative overflow-hidden bg-background py-20 md:py-32">
+          <div className="container grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative z-10 animate-[fade-in-up_1s_ease-out]">
+               <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-primary">Mirran Illuminate Architects</h1>
+               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">Your Residential & Small-Scale Development Services.</h2>
+               <p className="text-muted-foreground mb-8">
+                We provide professional, cost-conscious construction services for residential and
+                small-scale developments. Our approach separates Design, Costing, and Oversight from
+                execution risk - giving Clients (You) clarity, control, and confidence from concept to
+                completion.
+               </p>
+               <div className="flex flex-wrap gap-4">
+                {services.map((service, index) => (
+                  <Card
+                    key={service.name}
+                    className="p-4 bg-card/50 border-primary/20 transition-all duration-300 hover:scale-105 hover:bg-accent/50 animate-[fade-in-up_1s_ease-out] opacity-0"
+                     style={{ animationDelay: `${index * 0.2 + 0.5}s`, animationFillMode: 'forwards' }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <service.icon className="w-6 h-6 text-primary" />
+                      <h3 className="font-semibold text-lg text-foreground">{service.name}</h3>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+            <div className="relative flex items-center justify-center -mt-12 md:mt-0">
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl"></div>
+              <Image
+                src="https://picsum.photos/seed/modern-house-night/800/600"
+                alt="Modern residential house at night"
+                width={800}
+                height={600}
+                className="relative z-10 animate-float object-contain drop-shadow-2xl rounded-lg"
+                data-ai-hint="modern house night"
+                priority
+              />
+            </div>
           </div>
         </section>
 
@@ -133,9 +167,9 @@ export default function Home() {
           <div className="container">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl font-bold font-headline mb-4">About Mirran Architecture</h2>
+                <h2 className="text-4xl font-bold font-headline mb-4">About Mirran Illuminate Architects</h2>
                 <p className="text-muted-foreground mb-6">
-                  Founded on the principles of creativity, integrity, and sustainability, Mirran Architecture has been at the forefront of architectural innovation for over two decades. We believe that great design can transform lives and build better futures.
+                  Founded on the principles of creativity, integrity, and sustainability, Mirran Illuminate Architects has been at the forefront of architectural innovation for over two decades. We believe that great design can transform lives and build better futures.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4 p-4 rounded-lg bg-accent/50 border border-transparent hover:border-primary/20 transition-colors">
@@ -253,7 +287,7 @@ export default function Home() {
                 </div>
                 
                 <a 
-                  href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20Mirran%20Architecture%20I%20would%20like%20to%20"
+                  href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20Mirran%20Illuminate%20Architects%20I%20would%20like%20to%20"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-4 bg-green-500/10 text-green-400 p-4 rounded-lg transition-all duration-300 hover:bg-green-500/20 hover:scale-105 w-full max-w-xs"
