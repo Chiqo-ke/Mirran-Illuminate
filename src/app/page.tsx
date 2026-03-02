@@ -101,17 +101,59 @@ export default function Home() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-background py-20 md:py-32">
+          {/* mobile background removed */}
           <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative z-10 animate-[fade-in-up_1s_ease-out]">
-               <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4 text-primary">Mirran Illuminate Architects</h1>
-               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">Your Residential & Small-Scale Development Services.</h2>
+            <div className="relative z-10 animate-[fade-in-up_1s_ease-out] -mt-6 md:mt-0">
+
+               {/* Large title - hidden on small screens */}
+               <h1 className="hidden md:block text-4xl md:text-5xl font-bold font-headline mb-4">
+                 <span className="text-primary">Mirran</span> Illuminate Architects
+               </h1>
+
+               {/* Main headline always visible */}
+               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">Residential <span className="text-primary">Development</span> Services.</h2>
+
+               {/* Description */}
                <p className="text-muted-foreground mb-8">
                 We provide professional, cost-conscious construction services for residential and
                 small-scale developments. Our approach separates Design, Costing, and Oversight from
                 execution risk - giving Clients (You) clarity, control, and confidence from concept to
                 completion.
                </p>
-               <div className="flex flex-wrap gap-4">
+
+               {/* Interactive house illustration for mobile/tablet only */}
+               <div className="md:hidden flex justify-center mt-6 mb-6 relative" aria-hidden="true">
+                 {/* Full-page blur overlay on hover */}
+                 <div className="fixed inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 backdrop-blur-sm" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}></div>
+                 
+                 <div className="group relative w-36 h-36 z-30">
+                   {/* glowing rectangular container (appears on hover) */}
+                   <div className="absolute inset-0 flex items-center justify-center">
+                     <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{ boxShadow: "0 20px 40px rgba(99,102,241,0.25)", border: "2px solid rgba(99,102,241,0.18)" }} />
+                     <svg className="w-24 h-24 text-primary transform transition-transform duration-500 translate-y-4 group-hover:-translate-y-2 group-hover:scale-105 relative z-10" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                       <path d="M8 28 L32 8 L56 28" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                       <rect x="14" y="28" width="36" height="26" stroke="currentColor" strokeWidth="3" rx="2" />
+                       <rect x="30" y="38" width="8" height="16" fill="currentColor" />
+                     </svg>
+                   </div>
+
+                   {/* Left side points (emerging from inside the rectangle) */}
+                   <div className="absolute right-full top-1/2 -translate-y-1/2 -translate-x-4 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-500 text-left text-accent filter drop-shadow-lg" style={{ textShadow: "0 0 12px rgba(168, 85, 247, 0.6)" }}>
+                     <div className="text-lg font-medium">Design</div>
+                     <div className="text-lg font-medium mt-2">Supervision</div>
+                   </div>
+
+                   {/* Right side points (emerging from inside the rectangle) */}
+                   <div className="absolute left-full top-1/2 -translate-y-1/2 translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500 text-right text-accent filter drop-shadow-lg" style={{ textShadow: "0 0 12px rgba(168, 85, 247, 0.6)" }}>
+                     <div className="text-lg font-medium">Costing</div>
+                     <div className="text-lg font-medium mt-2">Development</div>
+                   </div>
+                 </div>
+               </div>
+
+               {/* Service cards - hide on small screens */}
+               <div className="hidden md:flex flex-wrap gap-4">
                 {services.map((service, index) => (
                   <Card
                     key={service.name}
@@ -129,11 +171,11 @@ export default function Home() {
             <div className="relative flex items-center justify-center -mt-12 md:mt-0">
               <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl"></div>
               <Image
-                src="https://picsum.photos/seed/modern-house-night/800/600"
+                src="/images/herohouse.png"
                 alt="Modern residential house at night"
                 width={800}
                 height={600}
-                className="relative z-10 animate-float object-contain drop-shadow-2xl rounded-lg"
+                className="hidden md:block relative z-10 animate-float object-contain drop-shadow-2xl rounded-lg"
                 data-ai-hint="modern house night"
                 priority
               />

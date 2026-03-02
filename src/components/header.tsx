@@ -46,8 +46,12 @@ export function Header() {
     )}>
       <div className="container flex h-20 items-center">
         <div className="mr-4 flex items-center">
-          <span className="font-headline text-2xl font-bold text-foreground">
-            Mirran Illuminate Architects
+          <span className="font-headline text-2xl font-bold hidden md:inline">
+            <span className="text-primary">Mirran</span>
+            <span className="ml-2 text-foreground">Illuminate Architects</span>
+          </span>
+          <span className="font-headline text-2xl font-bold md:hidden">
+            <span className="text-primary">M</span>I Architects
           </span>
         </div>
         <nav className="hidden md:flex flex-1 items-center justify-end space-x-2">
