@@ -50,8 +50,9 @@ export function Header() {
             <span className="text-primary">Mirran</span>
             <span className="ml-2 text-foreground">Illuminate Architects</span>
           </span>
-          <span className="font-headline text-2xl font-bold md:hidden">
-            <span className="text-primary">M</span>I Architects
+          <span className="font-headline text-2xl font-bold md:hidden leading-snug flex flex-col items-start justify-center pt-1">
+            <span className="leading-none"><span className="text-primary">Mirran</span> Illuminate</span>
+            <span className="text-muted-foreground text-[14px] font-medium tracking-wide">Architectures</span>
           </span>
         </div>
         <nav className="hidden md:flex flex-1 items-center justify-end space-x-2">

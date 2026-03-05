@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { SubscriptionForm } from "@/components/subscription-form";
+import { MobileHeroHouse } from "@/components/mobile-hero-house";
 import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin, Palette, DollarSign, Eye, Hammer } from "lucide-react";
 
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -108,49 +109,7 @@ export default function Home() {
                </p>
 
                {/* Interactive house illustration for mobile/tablet only */}
-               <div className="md:hidden flex items-center justify-center mt-20 mb-20 relative">
-                 <div className="group relative w-32 h-32 z-30 flex items-center justify-center cursor-pointer">
-                   
-                   {/* Central house icon with soft pulse ring */}
-                   <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping opacity-50"></div>
-                   <div className="relative z-10 w-24 h-24 bg-background border-2 border-primary/20 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.2)] group-hover:scale-105 transition-transform duration-300">
-                     <svg className="w-12 h-12 text-primary" viewBox="0 0 64 64" fill="none" stroke="currentColor">
-                       <path d="M8 28 L32 8 L56 28" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                       <rect x="14" y="28" width="36" height="26" strokeWidth="3" rx="2" />
-                       <rect x="30" y="38" width="8" height="16" fill="currentColor" />
-                     </svg>
-                   </div>
-
-                   {/* Surrounding tags pinned exclusively outside the pulsing circle via padding */}
-                   {/* Top Left */}
-                   <div className="absolute bottom-full right-1/2 mr-1 pb-4 z-20 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
-                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
-                       <Palette className="w-3.5 h-3.5 mr-1.5 text-primary" /> Design
-                     </span>
-                   </div>
-                   
-                   {/* Top Right */}
-                   <div className="absolute bottom-full left-1/2 ml-1 pb-4 z-20 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
-                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
-                       <DollarSign className="w-3.5 h-3.5 mr-1.5 text-primary" /> Costing
-                     </span>
-                   </div>
-
-                   {/* Bottom Left */}
-                   <div className="absolute top-full right-1/2 mr-1 pt-4 z-20 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-150">
-                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
-                       <Eye className="w-3.5 h-3.5 mr-1.5 text-primary" /> Supervision
-                     </span>
-                   </div>
-
-                   {/* Bottom Right */}
-                   <div className="absolute top-full left-1/2 ml-1 pt-4 z-20 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-200">
-                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
-                       <Hammer className="w-3.5 h-3.5 mr-1.5 text-primary" /> Development
-                     </span>
-                   </div>
-                 </div>
-               </div>
+               <MobileHeroHouse />
 
                {/* Service cards - hide on small screens */}
                <div className="hidden md:flex flex-nowrap gap-2 lg:gap-3">
@@ -241,9 +200,9 @@ export default function Home() {
                 <Card className="w-full max-w-md p-8 lg:p-10 shadow-lg bg-background">
                   <div className="text-center">
                      <div className="flex justify-center mb-4">
-                        <div className="p-4 bg-primary/10 rounded-full text-primary">
+                        <a href="mailto:mirranilluminatearchitects@gmail.com" className="p-4 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors">
                             <Mail className="w-8 h-8"/>
-                        </div>
+                        </a>
                      </div>
                     <h3 className="text-2xl font-bold font-headline mb-3">Stay in the Loop!</h3>
                     <p className="text-muted-foreground mb-8">
