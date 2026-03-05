@@ -117,67 +117,81 @@ export default function Home() {
                <p className="text-muted-foreground mb-8">
                 We provide professional, cost-conscious construction services for residential and
                 small-scale developments. Our approach separates Design, Costing, and Oversight from
-                execution risk - giving Clients (You) clarity, control, and confidence from concept to
+                execution risk - giving Clients clarity, control, and confidence from concept to
                 completion.
                </p>
 
                {/* Interactive house illustration for mobile/tablet only */}
-               <div className="md:hidden flex justify-center mt-6 mb-6 relative" aria-hidden="true">
-                 {/* Full-page blur overlay on hover */}
-                 <div className="fixed inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 backdrop-blur-sm" style={{ backgroundColor: "rgba(0,0,0,0.1)" }}></div>
-                 
-                 <div className="group relative w-36 h-36 z-30">
-                   {/* glowing rectangular container (appears on hover) */}
-                   <div className="absolute inset-0 flex items-center justify-center">
-                     <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          style={{ boxShadow: "0 20px 40px rgba(99,102,241,0.25)", border: "2px solid rgba(99,102,241,0.18)" }} />
-                     <svg className="w-24 h-24 text-primary transform transition-transform duration-500 translate-y-4 group-hover:-translate-y-2 group-hover:scale-105 relative z-10" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                       <path d="M8 28 L32 8 L56 28" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                       <rect x="14" y="28" width="36" height="26" stroke="currentColor" strokeWidth="3" rx="2" />
+               <div className="md:hidden flex items-center justify-center mt-20 mb-20 relative">
+                 <div className="group relative w-32 h-32 z-30 flex items-center justify-center cursor-pointer">
+                   
+                   {/* Central house icon with soft pulse ring */}
+                   <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping opacity-50"></div>
+                   <div className="relative z-10 w-24 h-24 bg-background border-2 border-primary/20 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.2)] group-hover:scale-105 transition-transform duration-300">
+                     <svg className="w-12 h-12 text-primary" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                       <path d="M8 28 L32 8 L56 28" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                       <rect x="14" y="28" width="36" height="26" strokeWidth="3" rx="2" />
                        <rect x="30" y="38" width="8" height="16" fill="currentColor" />
                      </svg>
                    </div>
 
-                   {/* Left side points (emerging from inside the rectangle) */}
-                   <div className="absolute right-full top-1/2 -translate-y-1/2 -translate-x-4 opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-500 text-left text-accent filter drop-shadow-lg" style={{ textShadow: "0 0 12px rgba(168, 85, 247, 0.6)" }}>
-                     <div className="text-lg font-medium">Design</div>
-                     <div className="text-lg font-medium mt-2">Supervision</div>
+                   {/* Surrounding tags pinned exclusively outside the pulsing circle via padding */}
+                   {/* Top Left */}
+                   <div className="absolute bottom-full right-1/2 mr-1 pb-4 z-20 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
+                       <Palette className="w-3.5 h-3.5 mr-1.5 text-primary" /> Design
+                     </span>
+                   </div>
+                   
+                   {/* Top Right */}
+                   <div className="absolute bottom-full left-1/2 ml-1 pb-4 z-20 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-75">
+                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
+                       <DollarSign className="w-3.5 h-3.5 mr-1.5 text-primary" /> Costing
+                     </span>
                    </div>
 
-                   {/* Right side points (emerging from inside the rectangle) */}
-                   <div className="absolute left-full top-1/2 -translate-y-1/2 translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-500 text-right text-accent filter drop-shadow-lg" style={{ textShadow: "0 0 12px rgba(168, 85, 247, 0.6)" }}>
-                     <div className="text-lg font-medium">Costing</div>
-                     <div className="text-lg font-medium mt-2">Development</div>
+                   {/* Bottom Left */}
+                   <div className="absolute top-full right-1/2 mr-1 pt-4 z-20 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-150">
+                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
+                       <Eye className="w-3.5 h-3.5 mr-1.5 text-primary" /> Supervision
+                     </span>
+                   </div>
+
+                   {/* Bottom Right */}
+                   <div className="absolute top-full left-1/2 ml-1 pt-4 z-20 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out delay-200">
+                     <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-card/95 text-foreground shadow-xl backdrop-blur-md border border-border whitespace-nowrap">
+                       <Hammer className="w-3.5 h-3.5 mr-1.5 text-primary" /> Development
+                     </span>
                    </div>
                  </div>
                </div>
 
                {/* Service cards - hide on small screens */}
-               <div className="hidden md:flex flex-wrap gap-4">
+               <div className="hidden md:flex flex-nowrap gap-2 lg:gap-3">
                 {services.map((service, index) => (
                   <Card
                     key={service.name}
-                    className="p-4 bg-card/50 border-primary/20 transition-all duration-300 hover:scale-105 hover:bg-accent/50 animate-[fade-in-up_1s_ease-out] opacity-0"
+                    className="p-2 md:p-2.5 lg:p-3 bg-card/50 border-primary/20 transition-all duration-300 hover:scale-105 hover:bg-accent/50 animate-[fade-in-up_1s_ease-out] opacity-0"
                      style={{ animationDelay: `${index * 0.2 + 0.5}s`, animationFillMode: 'forwards' }}
                   >
-                    <div className="flex items-center gap-3">
-                      <service.icon className="w-6 h-6 text-primary" />
-                      <h3 className="font-semibold text-lg text-foreground">{service.name}</h3>
+                    <div className="flex items-center gap-1.5 md:gap-2">
+                      <service.icon className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 text-primary" />
+                      <h3 className="font-semibold text-xs md:text-sm lg:text-base text-foreground">{service.name}</h3>
                     </div>
                   </Card>
                 ))}
               </div>
             </div>
-            <div className="relative flex items-center justify-center -mt-12 md:mt-0">
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl"></div>
+            <div className="hidden md:flex relative items-center justify-center w-full min-h-[400px] lg:min-h-[500px]">
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]"></div>
               <Image
                 src="/images/herohouse.png"
-                alt="Modern residential house at night"
-                width={800}
-                height={600}
-                className="hidden md:block relative z-10 animate-float object-contain drop-shadow-2xl rounded-lg"
-                data-ai-hint="modern house night"
+                alt="Modern residential house"
+                width={1000}
+                height={800}
+                className="relative z-10 w-full h-auto max-h-[600px] object-contain drop-shadow-2xl"
                 priority
+                unoptimized
               />
             </div>
           </div>
