@@ -64,27 +64,6 @@ const projects = [
     image: "https://placehold.co/600x400.png",
     hint: "country cottage",
   },
-  {
-    id: 4,
-    title: "Coastal Retreat",
-    description: "A serene residential home designed to embrace the coastal elements, featuring natural materials.",
-    image: "https://placehold.co/600x400.png",
-    hint: "beach house",
-  },
-    {
-    id: 5,
-    title: "Luxury B&B Suite",
-    description: "An elegant and inviting bed & breakfast suite, designed for ultimate guest comfort and relaxation.",
-    image: "https://placehold.co/600x400.png",
-    hint: "luxury suite",
-  },
-  {
-    id: 6,
-    title: "Modern Studio Apartment",
-    description: "A compact and functional studio apartment, maximizing space with smart design and multi-purpose furniture.",
-    image: "https://placehold.co/600x400.png",
-    hint: "studio apartment",
-  },
 ];
 
 const services = [
@@ -100,7 +79,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-background py-20 md:py-32">
+        <section className="relative overflow-hidden bg-background py-10 md:py-20 lg:py-24">
           {/* mobile background removed */}
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative z-10 animate-[fade-in-up_1s_ease-out] -mt-6 md:mt-0">
@@ -204,7 +183,7 @@ export default function Home() {
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Discover a selection of our finest work, showcasing our commitment to design excellence and innovation in residential architecture.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               {projects.map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -251,7 +230,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex flex-col items-center justify-center space-y-12">
                 <Card className="w-full max-w-md p-8 lg:p-10 shadow-lg bg-background">
                   <div className="text-center">
                      <div className="flex justify-center mb-4">
@@ -266,6 +245,41 @@ export default function Home() {
                     <SubscriptionForm />
                   </div>
                 </Card>
+
+                <div className="w-full max-w-md flex flex-col items-center justify-center space-y-8 pt-6 border-t border-border/50">
+                  <div className="text-center w-full">
+                    <h3 className="text-2xl font-bold text-foreground mb-3 font-headline">Connect With Us</h3>
+                    <p className="text-muted-foreground mb-6">Stay updated closely with our latest projects and architectural insights through our social channels.</p>
+                    <div className="flex items-center justify-center gap-6">
+                        <a href="#" aria-label="X" className="bg-background p-4 rounded-full border border-border text-muted-foreground transition-all duration-300 hover:text-primary hover:border-primary hover:scale-110 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+                            <XIcon className="h-6 w-6" />
+                        </a>
+                        <a href="#" aria-label="YouTube" className="bg-background p-4 rounded-full border border-border text-muted-foreground transition-all duration-300 hover:text-red-500 hover:border-red-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(239,68,68,0.2)]">
+                            <Youtube className="h-6 w-6" />
+                        </a>
+                        <a href="#" aria-label="LinkedIn" className="bg-background p-4 rounded-full border border-border text-muted-foreground transition-all duration-300 hover:text-blue-500 hover:border-blue-500 hover:scale-110 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                            <Linkedin className="h-6 w-6" />
+                        </a>
+                    </div>
+                  </div>
+                  
+                  <div className="w-full">
+                    <a 
+                      href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20Mirran%20Illuminate%20Architects%20I%20would%20like%20to%20"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col sm:flex-row items-center gap-6 bg-gradient-to-br from-green-500/10 to-emerald-500/5 border border-green-500/20 text-green-400 p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:from-green-500/20 hover:to-emerald-500/10 hover:border-green-500/40 hover:scale-[1.02] shadow-sm w-full bg-background"
+                    >
+                      <div className="bg-green-500/10 p-4 rounded-full shrink-0 group-hover:bg-green-500/20 transition-colors">
+                        <WhatsAppIcon className="h-10 w-10 text-green-500 drop-shadow-md transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
+                      </div>
+                      <div className="text-center sm:text-left">
+                        <h3 className="text-xl font-bold text-foreground mb-1">Chat on WhatsApp</h3>
+                        <p className="text-base text-muted-foreground">Start a conversation instantly</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -278,10 +292,10 @@ export default function Home() {
             <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
               Our 3D walkthroughs bring your vision to life before breaking ground. By combining our professional expertise with your desires, we create immersive virtual experiences that allow you to explore every detail of your future space.
             </p>
-            <div className="flex flex-wrap justify-center gap-8">
-              <div className="aspect-video w-full max-w-2xl lg:max-w-none lg:w-[calc(33.333%-1.5rem)] rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              <div className="w-full rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl aspect-video md:aspect-[4/3] lg:aspect-video">
                 <iframe
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   src="https://www.youtube.com/embed/z3QZ6g-q4wA"
                   title="Luxury Modern House Architectural Walkthrough"
                   frameBorder="0"
@@ -289,9 +303,9 @@ export default function Home() {
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="aspect-video w-full max-w-2xl lg:max-w-none lg:w-[calc(33.333%-1.5rem)] rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
+              <div className="w-full rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl aspect-video md:aspect-[4/3] lg:aspect-video">
                 <iframe
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   src="https://www.youtube.com/embed/YgQ_eAutX-s"
                   title="Modern Villa Architectural Walkthrough"
                   frameBorder="0"
@@ -299,72 +313,15 @@ export default function Home() {
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="aspect-video w-full max-w-2xl lg:max-w-none lg:w-[calc(33.333%-1.5rem)] rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl">
+              <div className="w-full rounded-lg overflow-hidden border-2 border-primary/20 shadow-xl aspect-video md:aspect-[4/3] lg:aspect-video">
                 <iframe
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   src="https://www.youtube.com/embed/Gqpud9e9M3I"
                   title="Contemporary Home 3D Animation"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Contact Section */}
-        <section id="contact" className="py-20 bg-card">
-          <div className="container">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl font-bold font-headline mb-4">Get In Touch</h2>
-              <p className="text-muted-foreground mb-12">
-                Have a project in mind? We'd love to hear from you. Fill out the form below or connect with us on social media.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-16 items-start">
-              <Card className="p-8 bg-background">
-                <ContactForm />
-              </Card>
-              <div className="flex flex-col items-center justify-start space-y-8 pt-8 md:pt-0">
-                <div className="text-center">
-                  <h3 className="font-bold text-lg text-foreground mb-4">Connect with us</h3>
-                  <div className="flex items-center justify-center gap-6">
-                      <a href="#" aria-label="X" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
-                          <XIcon className="h-8 w-8" />
-                      </a>
-                      <a href="#" aria-label="YouTube" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
-                          <Youtube className="h-8 w-8" />
-                      </a>
-                      <a href="#" aria-label="LinkedIn" className="text-muted-foreground transition-all duration-300 hover:text-primary hover:scale-125">
-                          <Linkedin className="h-8 w-8" />
-                      </a>
-                  </div>
-                </div>
-                
-                <a 
-                  href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20Mirran%20Illuminate%20Architects%20I%20would%20like%20to%20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4 bg-green-500/10 text-green-400 p-4 rounded-lg transition-all duration-300 hover:bg-green-500/20 hover:scale-105 w-full max-w-xs"
-                >
-                  <WhatsAppIcon className="h-12 w-12 text-green-500 transition-transform duration-300 group-hover:rotate-12" />
-                  <div>
-                    <h3 className="font-bold text-lg text-foreground">Chat on WhatsApp</h3>
-                    <p className="text-sm text-muted-foreground">Start a conversation instantly</p>
-                  </div>
-                </a>
-
-                <div className="w-full max-w-xs text-center">
-                  <div className="border rounded-lg overflow-hidden h-[28rem] w-full bg-muted/20 shadow-inner">
-                    <iframe src="/cv.pdf" className="w-full h-full" title="CV Preview"></iframe>
-                  </div>
-                  <Button variant="link" asChild className="mt-4">
-                    <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-                      See complete CV
-                    </a>
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
