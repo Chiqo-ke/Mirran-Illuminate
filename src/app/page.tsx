@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { SubscriptionForm } from "@/components/subscription-form";
-import { MobileHeroHouse } from "@/components/mobile-hero-house";
+import { HeroServices } from "@/components/hero-services";
 import { Building, Users, Goal, ArrowRight, Mail, Youtube, Linkedin, Palette, DollarSign, Eye, Hammer } from "lucide-react";
 
 function XIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -74,13 +74,6 @@ const projects = [
   },
 ];
 
-const services = [
-  { name: "Design", icon: Palette },
-  { name: "Costing", icon: DollarSign },
-  { name: "Supervision", icon: Eye },
-  { name: "Renovation", icon: Hammer },
-];
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -108,24 +101,8 @@ export default function Home() {
                 completion.
                </p>
 
-               {/* Interactive house illustration for mobile/tablet only */}
-               <MobileHeroHouse />
-
-               {/* Service cards - hide on small screens */}
-               <div className="hidden md:flex flex-nowrap gap-2 lg:gap-3">
-                {services.map((service, index) => (
-                  <Card
-                    key={service.name}
-                    className="p-2 md:p-2.5 lg:p-3 bg-card/50 border-primary/20 transition-all duration-300 hover:scale-105 hover:bg-accent/50 animate-[fade-in-up_1s_ease-out] opacity-0"
-                     style={{ animationDelay: `${index * 0.2 + 0.5}s`, animationFillMode: 'forwards' }}
-                  >
-                    <div className="flex items-center gap-1.5 md:gap-2">
-                      <service.icon className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 text-primary" />
-                      <h3 className="font-semibold text-xs md:text-sm lg:text-base text-foreground">{service.name}</h3>
-                    </div>
-                  </Card>
-                ))}
-              </div>
+               {/* Interactive house illustration & Desktop Cards */}
+               <HeroServices />
             </div>
             <div className="hidden md:flex relative items-center justify-center w-full min-h-[400px] lg:min-h-[500px]">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]"></div>
