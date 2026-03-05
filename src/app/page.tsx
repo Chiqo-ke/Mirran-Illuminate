@@ -47,22 +47,29 @@ const projects = [
     id: 1,
     title: "Serene Lakeside Villa",
     description: "A stunning synthesis of glass and wood, this villa offers panoramic views of a tranquil lake.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/hom1.jpeg",
     hint: "lake house",
   },
   {
     id: 2,
     title: "Chic Urban Loft",
     description: "A stylish loft conversion in the city center, featuring exposed brick and industrial-chic design.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/home2.jpeg",
     hint: "urban loft",
   },
   {
     id: 3,
     title: "Cozy Country Cottage",
     description: "A charming countryside cottage, thoughtfully restored to blend rustic character with modern comforts.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/home3.jpeg",
     hint: "country cottage",
+  },
+  {
+    id: 4,
+    title: "Modern Minimalist Home",
+    description: "A clean architectural design prioritizing open spaces, natural light, and seamless indoor-outdoor living.",
+    image: "/images/home4.jpeg",
+    hint: "modern minimalist",
   },
 ];
 
@@ -183,7 +190,7 @@ export default function Home() {
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Discover a selection of our finest work, showcasing our commitment to design excellence and innovation in residential architecture.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {projects.map((project) => (
                 <ProjectCard
                   key={project.id}
