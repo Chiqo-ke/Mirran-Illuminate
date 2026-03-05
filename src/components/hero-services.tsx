@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Palette, DollarSign, Eye, Hammer, X, PenTool, Calculator, ClipboardCheck, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
@@ -65,6 +66,7 @@ const serviceDetails = {
 export function HeroServices() {
   const [activeModal, setActiveModal] = useState<keyof typeof serviceDetails | null>(null);
   const [tagsVisible, setTagsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const hideTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -80,6 +82,7 @@ export function HeroServices() {
   };
 
   useEffect(() => {
+    setMounted(true);
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Just trigger tags if it enters the view
@@ -202,52 +205,55 @@ export function HeroServices() {
       </div>
 
       {/* SHARED MODAL OVERLAY */}
-      <div 
-        className={cn("fixed inset-0 z-[100] flex flex-col items-center justify-center p-4 transition-all duration-300", activeModal ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none")}
-        style={{ backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}
-        onClick={closeModal}
-        onTouchStart={closeModal}
-      >
-        {activeModal && (
-           <div 
-           className={cn(
-             "bg-background border border-border rounded-2xl p-6 shadow-2xl max-w-sm w-full relative transform transition-all duration-300",
-             activeModal ? "scale-100 translate-y-0" : "scale-95 translate-y-8"
-           )}
-           onClick={(e) => e.stopPropagation()}
-           onTouchStart={(e) => e.stopPropagation()}
-         >
-           <button 
-             onClick={closeModal}
-             className="absolute top-4 right-4 p-1.5 rounded-full bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+      {mounted && createPortal(
+        <div 
+          className={cn("fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 transition-all duration-300", activeModal ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none")}
+          style={{ backgroundColor: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }}
+          onClick={closeModal}
+          onTouchStart={closeModal}
+        >
+          {activeModal && (
+             <div 
+             className={cn(
+               "bg-background border border-border rounded-2xl p-6 shadow-2xl max-w-sm w-full relative transform transition-all duration-300",
+               activeModal ? "scale-100 translate-y-0" : "scale-95 translate-y-8"
+             )}
+             onClick={(e) => e.stopPropagation()}
+             onTouchStart={(e) => e.stopPropagation()}
            >
-             <X className="w-5 h-5" />
-           </button>
+             <button 
+               onClick={closeModal}
+               className="absolute top-4 right-4 p-1.5 rounded-full bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+             >
+               <X className="w-5 h-5" />
+             </button>
 
-           <div className="flex flex-col items-center text-center mb-6">
-             <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20 shadow-inner">
-               {React.createElement(serviceDetails[activeModal].modalIcon, { className: "w-8 h-8 text-primary" })}
+             <div className="flex flex-col items-center text-center mb-6">
+               <div className="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 border border-primary/20 shadow-inner">
+                 {React.createElement(serviceDetails[activeModal].modalIcon, { className: "w-8 h-8 text-primary" })}
+               </div>
+               <h3 className="text-xl font-bold font-headline text-foreground">{serviceDetails[activeModal].title}</h3>
              </div>
-             <h3 className="text-xl font-bold font-headline text-foreground">{serviceDetails[activeModal].title}</h3>
-           </div>
-           
-           <p className="text-sm text-muted-foreground mb-5 text-center leading-relaxed">
-             {serviceDetails[activeModal].description}
-           </p>
+             
+             <p className="text-sm text-muted-foreground mb-5 text-center leading-relaxed">
+               {serviceDetails[activeModal].description}
+             </p>
 
-           <ul className="space-y-3">
-             {serviceDetails[activeModal].items.map((item, idx) => (
-               <li key={idx} className="flex items-start text-sm text-foreground">
-                 <div className="mr-3 mt-1 rounded-full bg-primary/20 p-1 flex-shrink-0">
-                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                 </div>
-                 <span className="leading-tight text-left">{item}</span>
-               </li>
-             ))}
-           </ul>
-          </div>
-        )}
-      </div>
+             <ul className="space-y-3">
+               {serviceDetails[activeModal].items.map((item, idx) => (
+                 <li key={idx} className="flex items-start text-sm text-foreground">
+                   <div className="mr-3 mt-1 rounded-full bg-primary/20 p-1 flex-shrink-0">
+                     <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                   </div>
+                   <span className="leading-tight text-left">{item}</span>
+                 </li>
+               ))}
+             </ul>
+            </div>
+          )}
+        </div>,
+        document.body
+      )}
     </>
   );
 }
